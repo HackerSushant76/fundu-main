@@ -25,7 +25,7 @@ const Home = () => {
   const { user, isAuthenticated } = useAuth0();
   const getPosts = () => {
     axios
-      .get(`http://localhost:5000/posts?page=${page}&sort=${sort}`)
+      .get(`https://fundu-main-api.onrender.com/posts?page=${page}&sort=${sort}`)
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
@@ -37,7 +37,7 @@ const Home = () => {
 
   const getfilteredPost = () => {
     axios
-      .get(`http://localhost:5000/posts?page=${page}&filter=${user.name}`)
+      .get(`https://fundu-main-api.onrender.com/posts?page=${page}&filter=${user.name}`)
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
@@ -55,7 +55,7 @@ const Home = () => {
       title: title,
     };
     axios
-      .post("https://fundu-api.onrender.com/addpost", payload)
+      .post("https://fundu-main-api.onrender.com/addpost", payload)
       .then((res) => {
         console.log(res.data);
         alert(res.data);
@@ -84,7 +84,7 @@ const Home = () => {
         </Button>
         <Select
           onChange={(e) => setSort(e.target.value)}
-          w="300px"
+          w="170px"
           color="teal"
           fontWeight="bold"
           border="2px solid teal"

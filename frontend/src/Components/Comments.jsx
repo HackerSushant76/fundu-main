@@ -18,7 +18,7 @@ const Comments = ({ post_id }) => {
       },
     };
     axios
-      .get("https://fundu-api.onrender.com/comments", config)
+      .get("https://fundu-main-api.onrender.com/comments", config)
       .then((res) => {
         console.log(res.data);
         setComData(res.data);
@@ -39,7 +39,7 @@ const Comments = ({ post_id }) => {
       },
     };
     axios
-      .post("https://fundu-api.onrender.com/addcomment", payload, config)
+      .post("https://fundu-main-api.onrender.com/addcomment", payload, config)
       .then((res) => {
         console.log(res.data);
         alert(res.data)

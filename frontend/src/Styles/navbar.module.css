@@ -34,3 +34,17 @@
     width: 200px;
     border-radius: 60%;
 }
+
+@media (max-width:500px) {
+    #nav{
+        gap: 20px;
+        padding: 10px 10px;
+    }
+    #user{
+        justify-content: center;
+    }
+    #profile{
+        font-size: 22px;
+        flex-wrap: wrap;
+    }
+}
