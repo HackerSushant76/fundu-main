@@ -1,4 +1,4 @@
-# fundu: - https://fundu-eta.vercel.app/
+# fundu: - https://fundu-hackersushant76.vercel.app/
 
 ## Deployed backend: - https://fundu-main-api.onrender.com
 
