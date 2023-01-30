@@ -20,12 +20,12 @@ const Home = () => {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("recent");
   const [filter, setFilter] = useState(false);
   const { user, isAuthenticated } = useAuth0();
   const getPosts = () => {
     axios
-      .get(`https://fundu-api.onrender.com/posts?page=${page}&sort=${sort}`)
+      .get(`http://localhost:5000/posts?page=${page}&sort=${sort}`)
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
@@ -37,7 +37,7 @@ const Home = () => {
 
   const getfilteredPost = () => {
     axios
-      .get(`https://fundu-api.onrender.com/posts?page=${page}&filter=${user.name}`)
+      .get(`http://localhost:5000/posts?page=${page}&filter=${user.name}`)
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
@@ -65,6 +65,11 @@ const Home = () => {
       })
       .then(() => getPosts());
   };
+  const handleFilter = () => {
+    setFilter(filter ? false : true);
+    if (!filter) getfilteredPost();
+    else getPosts();
+  };
   useEffect(() => {
     getPosts();
   }, [page, sort]);
@@ -74,20 +79,18 @@ const Home = () => {
     <>
       <br />
       <Box w="fit-content" m="auto" display="flex" gap="20px">
-        <Button
-          colorScheme="teal"
-          isDisabled={filter}
-          onClick={() => {
-            // getfilteredPost();
-            setFilter(filter ? false : true);
-          }}
-        >
+        <Button colorScheme="teal"  onClick={handleFilter}>
           {!filter ? "See your posts" : "See all posts"}
         </Button>
-        <Select onChange={(e) => setSort(e.target.value)} w="300px">
-          <option value="">Sort by name</option>
-          <option value="asc">Ascending</option>
-          <option value="desc"> Descending</option>
+        <Select
+          onChange={(e) => setSort(e.target.value)}
+          w="300px"
+          color="teal"
+          fontWeight="bold"
+          border="2px solid teal"
+        >
+          <option value="recent">Recent Posts</option>
+          <option value="Top"> Top</option>
         </Select>
       </Box>
       <div id={styles.home}>
@@ -110,7 +113,9 @@ const Home = () => {
             onChange={(e) => setText(e.target.value)}
             required
           />
-          <Button onClick={addPost} colorScheme="teal">Post</Button>
+          <Button onClick={addPost} colorScheme="teal">
+            Post
+          </Button>
         </div>
         <div id={styles.posts}>
           {posts.map((elem) => (

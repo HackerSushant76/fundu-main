@@ -1,0 +1,13 @@
+#loginfirst{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* justify-content: center; */
+    align-items: center;
+}
+#loginfirst button{
+    color: white;
+    font-size: 30px;
+    padding: 30px;
+}

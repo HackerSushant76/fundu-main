@@ -13,8 +13,8 @@ const Navbar = () => {
       <Link to="/">Home</Link>
       {isAuthenticated ? (
         <div id={styles.user}>
-          <Avatar name={user.name} src={user.picture} />{" "}
-          <Heading size="md">{user.name}</Heading>
+          <Link to="/profile"><Avatar name={user.name} src={user.picture} /></Link>{" "}
+          <Link to="/profile"><Heading size="md">{user.name}</Heading></Link>
           <LogoutButton />
         </div>
       ) : (
