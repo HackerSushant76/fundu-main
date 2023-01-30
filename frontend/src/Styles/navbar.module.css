@@ -1,0 +1,21 @@
+#nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: darkcyan;
+    color: white;
+    padding: 10px 50px;
+    position: sticky;
+    z-index: 99;
+    top:0px
+}
+#nav> button{
+    background: darkblue;
+}
+
+#user{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}

@@ -1,0 +1,13 @@
+#signup{
+    background: #9969f3;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px;
+}
+
+#signup>input{
+    background: rgba(255, 255, 255, 0.966);
+    margin-bottom: 30px;
+}

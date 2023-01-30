@@ -1,0 +1,28 @@
+#container{
+    /* width: 90%; */
+    /* border: 1px solid; */
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    background: rgb(255, 231, 216);
+    text-align: center;
+}
+#combox{   
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+#namebox{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 3px;
+}
+
+#inputbox{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
